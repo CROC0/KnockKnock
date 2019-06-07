@@ -20,7 +20,7 @@ class Fibonacci(Resource):
                 return n
             return fib(n-1) + fib(n - 2)
 
-        return fib(n)
+        return {"message:", fib(n)}
 
 class ReverseWords(Resource):
     
@@ -38,12 +38,12 @@ class ReverseWords(Resource):
         for c in reversed(data["sentence"]):
             new_sentence += c
 
-        return new_sentence, 200
+        return {"message:", new_sentence}, 200
 
 class Token(Resource):
 
     def get(self):
-        return "865a6eea-ee00-4cee-ad75-9ec6a170d4e7"
+        return {"token:", "865a6eea-ee00-4cee-ad75-9ec6a170d4e7"}
 
 class TriangleType(Resource):
         
@@ -73,9 +73,9 @@ class TriangleType(Resource):
         c = data["c"]
         
         if a == b == c:
-            return "Equilateral"
+            return {"Triangle Type:", "Equilateral"}
         elif a == b or a == c or b == c:
-            return "Isosceles"
+            return {"Triangle Type:", "Isosceles"}
         else:
-            return "Scalene"
+            return {"Triangle Type:", "Scalene"}
         
