@@ -22,4 +22,4 @@ api.add_resource(Token, '/api/Token')
 api.add_resource(TriangleType, '/api/TriangleType')
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run()
