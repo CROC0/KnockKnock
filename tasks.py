@@ -1,3 +1,4 @@
+from flask import jsonify
 from flask_restful import Resource, reqparse
 
 
@@ -20,7 +21,7 @@ class Fibonacci(Resource):
                 return n
             return fib(n-1) + fib(n - 2)
 
-        return {"message:", fib(n)}
+        return {"n": fib(n)}
 
 class ReverseWords(Resource):
     
@@ -38,12 +39,12 @@ class ReverseWords(Resource):
         for c in reversed(data["sentence"]):
             new_sentence += c
 
-        return {"message:", new_sentence}, 200
+        return {"sentence": new_sentence}
 
 class Token(Resource):
 
     def get(self):
-        return {"token:", "865a6eea-ee00-4cee-ad75-9ec6a170d4e7"}
+        return {"Token": "865a6eea-ee00-4cee-ad75-9ec6a170d4e7"}
 
 class TriangleType(Resource):
         
@@ -73,9 +74,9 @@ class TriangleType(Resource):
         c = data["c"]
         
         if a == b == c:
-            return {"Triangle Type:", "Equilateral"}
+            return {"Triangle Type": "Equilateral"}
         elif a == b or a == c or b == c:
-            return {"Triangle Type:", "Isosceles"}
+            return {"Triangle Type": "Isosceles"}
         else:
-            return {"Triangle Type:", "Scalene"}
+            return {"Triangle Type": "Scalene"}
         
